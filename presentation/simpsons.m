@@ -1,6 +1,6 @@
-clc; clear all, close all
+clc; clear, close all
 %%
-im1= imread('c.jpg');
+im1= imread('assets/c.jpg');
 im1g = rgb2gray(im1);
 figure;imshow(im1g);title('Imagen original');
 xi=150;
@@ -19,16 +19,16 @@ corr=xcorr2(im1g,im2g);
 [X,Y] = ind2sub(size(corr),loc);
 %%
 figure; plot(corr(:))
-title('Correlación cruzada')
+title('CorrelaciÃ³n cruzada')
 hold on
 plot(loc,maxcorr,'or')
 hold off
-text(loc*1.05,maxcorr,'Máximo')
+text(loc*1.05,maxcorr,'MÃ¡ximo')
 %%
 figure; imagesc(im1g)
 axis image off
 colormap gray
-title('Localización encontrada')
+title('LocalizaciÃ³n encontrada')
 hold on
 plot([Y-size(im2g,2) Y-size(im2g,2) Y Y Y-size(im2g,2)],[X-size(im2g,1) X X X-size(im2g,1) X-size(im2g,1)],'r')
 hold off
