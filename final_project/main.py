@@ -18,6 +18,7 @@ while 1:
     if not ret:
         break
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    frame = cv2.Laplacian(frame, cv2.CV_64F)
     frames.append(frame)
 
 
@@ -81,3 +82,4 @@ tools.display_vector_field(
     on_img=True,  # overlay on the image
     image_name="frameA.png",
 )
+plt.show()
